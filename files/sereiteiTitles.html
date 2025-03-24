@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sereitei Titles</title>
+    <link href="fonts.css" rel="stylesheet">
+    <link href="styling.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Roboto+Mono:wght@400;700&family=Oswald:wght@400;700&family=Merriweather:wght@400;700&family=Ubuntu:wght@400;700&family=Nunito:wght@400;700&family=Indie+Flower&family=Bangers&family=Amatic+SC:wght@400;700&family=Permanent+Marker&family=Patrick+Hand&family=Jura:wght@400;700&family=Josefin+Sans:wght@400;700&family=Grenze+Gothic:wght@400;700&family=Fredoka+One&family=Fondamento&family=DejaVu+Sans+Mono&family=Creepster&family=Kalam&family=Luckiest+Guy&family=Titillium+Web:wght@400;700&family=Special+Elite&family=Sarpanch:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Gotham:wght@400;700&family=EB+Garamond:wght@400;700&family=Bodoni+Moda:wght@400;700&family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="formContainer">
+        <form>
+            <h1>Enter Your Name: </h1>
+            <input type="text" id="nameInput" placeholder="Enter your name" />
+
+            <h1>Select a Font Style: </h1>
+            <select id="fontSelect">
+                <option class="roboto" value="Roboto">Roboto</option>
+                <option class="roboto-condensed" value="Roboto Condensed">Roboto Condensed</option>
+                <option class="roboto-mono" value="Roboto Mono">Roboto Mono</option>
+                <option class="oswald" value="Oswald">Oswald</option>
+                <option class="merriweather" value="Merriweather">Merriweather</option>
+                <option class="ubuntu" value="Ubuntu">Ubuntu</option>
+                <option class="nunito" value="Nunito">Nunito</option>
+                <option class="indie-flower" value="Indie Flower">Indie Flower</option>
+                <option class="bangers" value="Bangers">Bangers</option>
+                <option class="amatic-sc" value="Amatic SC">Amatic SC</option>
+                <option class="permanent-marker" value="Permanent Marker">Permanent Marker</option>
+                <option class="patrick-hand" value="Patrick Hand">Patrick Hand</option>
+                <option class="jura" value="Jura">Jura</option>
+                <option class="josefin-sans" value="Josefin Sans">Josefin Sans</option>
+                <option class="grenze-gothic" value="Grenze Gothic">Grenze Gothic</option>
+                <option class="fredoka-one" value="Fredoka One">Fredoka One</option>
+                <option class="fondamento" value="Fondamento">Fondamento</option>
+                <option class="deja-vu-mono" value="DejaVu Mono">DejaVu Mono</option>
+                <option class="creepster" value="Creepster">Creepster</option>
+                <option class="kalam" value="Kalam">Kalam</option>
+                <option class="luckiest-guy" value="Luckiest Guy">Luckiest Guy</option>
+                <option class="titillium-web" value="Titillium Web">Titillium Web</option>
+                <option class="special-elite" value="Special Elite">Special Elite</option>
+                <option class="sarpanch" value="Sarpanch">Sarpanch</option>
+                <option class="source-sans-pro" value="Source Sans Pro">Source Sans Pro</option>
+                <option class="gotham" value="Gotham">Gotham</option>
+                <option class="eb-garamond" value="EB Garamond">EB Garamond</option>
+                <option class="bodoni-moda" value="Bodoni Moda">Bodoni Moda</option>
+                <option class="cinzel" value="Cinzel">Cinzel</option>
+                <option class="cinzel-decorative" value="Cinzel Decorative">Cinzel Decorative</option>
+            </select>
+
+            <h1>Select Rank:</h1>
+            <select id="rankSelect">
+                <option value="royalGuard">Royal Guard</option>
+                <option value="captain">Captain</option>
+                <option value="lieutenant">Lieutenant</option>
+            </select>
+
+            <div id="divisionContainer" style="display: none;">
+                <h1>Select Division:</h1>
+                <select id="divisionSelect">
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                    <option value="5th">5th</option>
+                    <option value="6th">6th</option>
+                    <option value="7th">7th</option>
+                    <option value="8th">8th</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="11th">11th</option>
+                    <option value="12th">12th</option>
+                </select>
+            </div>
+
+            <div id="royalGuardContainer" style="display: none;">
+                <h1>Choose Royal Guard Rank:</h1>
+                <select id="royalGuardSelect">
+                    <option value="Hot Spring Demon | Divine General of The East">Hot Spring Demon | Divine General of The East</option>
+                    <option value="Ruler of Grain | Divine General of The South">Ruler of Grain | Divine General of The South</option>
+                    <option value="God of the Sword | Divine General of The West">God of the Sword | Divine General of The West</option>
+                    <option value="Great Weave Guard | Divine General of The North">Great Weave Guard | Divine General of The North</option>
+                </select>
+            </div>
+
+            <div id="kenpachiContainer" style="display: none;">
+                <input type="checkbox" id="kenpachi" name="kenpachi">
+                <label for="kenpachi"><h1>Kenpachi</h1></label>
+            </div>
+        </form>
+
+        <div id="preview"></div>
+        
+        <div id="htmlCodeContainer" style="margin-top: 20px;">
+            <h1>HTML Code:</h1>
+            <h2><pre id="htmlCode"></pre></h2>
+        </div>
+        
+
+    </div>
+
+
+    <script src="sereiteiScript.js"></script>
+
+</body>
+</html>
