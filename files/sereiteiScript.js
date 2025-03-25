@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (selectedRank === 'royalFamily') {
             textColor = rankColors.royalFamily;
             if (royalFamilyCaptainStatus) {
-                previewText += `${selectedClan} Head </br> Captain of the ${selectedDivision} Division`;
+                previewText += `${selectedClan} Head <br/> Captain of The ${selectedDivision} Division`;
             } else {
-                previewText += `Gen ${generation}</br> Head of the ${selectedClan}`;
+                previewText += `Gen ${generation}<br/> Head of The ${selectedClan} clan`;
             }
         }
         
@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (selectedRank === 'vizard') {
             if (vizCaptainStatus) {
                 textColor = rankColors.vizardCaptain;
-                previewText += `🎭${selectedVizardRank}🎭 </br> Captain of the ${selectedDivision} Division`;
+                previewText += `🎭${selectedVizardRank}🎭 <br/> Captain of The ${selectedDivision} Division`;
             } else if (vizLieutenantStatus) {
                 textColor = rankColors.vizard;
-                previewText += `🎭${selectedVizardRank}🎭 </br> Lieutenant of the ${selectedDivision} Division`;
+                previewText += `🎭${selectedVizardRank}🎭 <br/> Lieutenant of The ${selectedDivision} Division`;
             } else {
                 textColor = rankColors.vizard;
                 previewText += `🎭${selectedVizardRank}🎭`;
@@ -80,14 +80,14 @@ document.addEventListener('DOMContentLoaded', function () {
         } 
         else if (selectedRank === 'captain') {
             textColor = kenpachiStatus ? rankColors.captainKenpachi : rankColors.captain;
-            previewText += `Captain of the ${selectedDivision} Division`;
+            previewText += `Captain of The ${selectedDivision} Division`;
             if (kenpachiStatus) {
                 previewText += " | Kenpachi";
             }
         } 
         else if (selectedRank === 'lieutenant') {
             textColor = rankColors.lieutenant;
-            previewText += `Lieutenant of the ${selectedDivision} Division`;
+            previewText += `Lieutenant of The ${selectedDivision} Division`;
         }
 
         preview.style.fontFamily = selectedFont;
