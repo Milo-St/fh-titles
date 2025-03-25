@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (royalFamilyCaptainStatus) {
                 previewText += `${selectedClan} Head </br> Captain of the ${selectedDivision} Division`;
             } else {
-                previewText += `${generation} Gen </br> Head of the ${selectedClan}`;
+                previewText += `Gen ${generation}</br> Head of the ${selectedClan}`;
             }
         }
         
