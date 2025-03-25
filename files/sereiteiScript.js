@@ -21,6 +21,38 @@ document.addEventListener('DOMContentLoaded', function () {
     const nameInput = document.getElementById('nameInput');
     const htmlCodeContainer = document.getElementById('htmlCode');
 
+    const fontMap = {
+        "Roboto": "Roboto",
+        "RobotoCondensed": "Roboto Condensed",
+        "RobotoMono": "Roboto Mono",
+        "Oswald": "Oswald",
+        "Merriweather": "Merriweather",
+        "Ubuntu": "Ubuntu",
+        "Nunito": "Nunito",
+        "IndieFlower": "Indie Flower",
+        "Bangers": "Bangers",
+        "AmaticSC": "Amatic SC",
+        "PermanentMarker": "Permanent Marker",
+        "PatrickHand": "Patrick Hand",
+        "Jura": "Jura",
+        "JosefinSans": "Josefin Sans",
+        "GrenzeGotisch": "Grenze Gotisch",
+        "FredokaOne": "Fredoka One",
+        "Fondamento": "Fondamento",
+        "DejaVuMono": "DejaVu Sans Mono",
+        "Creepster": "Creepster",
+        "Kalam": "Kalam",
+        "LuckiestGuy": "Luckiest Guy",
+        "TitilliumWeb": "Titillium Web",
+        "SpecialElite": "Special Elite",
+        "Sarpanch": "Sarpanch",
+        "SourceSansPro": "Source Sans Pro",
+        "EBGaramond": "EB Garamond",
+        "BodoniModa": "Bodoni Moda",
+        "Cinzel": "Cinzel",
+        "CinzelDecorative": "Cinzel Decorative"
+    };
+
     const rankColors = {
         royalFamily: "#a9fefe",
         royalGuard: "#640000",
@@ -33,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updatePreview() {
         let selectedFont = fontSelect.value;
+        let googleFont = fontMap[selectedFont] || selectedFont;
         let selectedRank = rankSelect.value;
         let selectedDivision = divisionSelect.value;
         let selectedRoyalGuard = royalGuardSelect.options[royalGuardSelect.selectedIndex].text;
@@ -90,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
             previewText += `Lieutenant of The ${selectedDivision} Division`;
         }
 
-        preview.style.fontFamily = selectedFont;
+        preview.style.fontFamily = `'${googleFont}', sans-serif`;
         preview.style.color = textColor;
         preview.innerHTML = previewText;
 
