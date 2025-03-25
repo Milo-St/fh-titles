@@ -3,30 +3,32 @@ document.addEventListener('DOMContentLoaded', function () {
     const rankSelect = document.getElementById('rankSelect');
     const divisionSelect = document.getElementById('divisionSelect');
     const royalGuardSelect = document.getElementById('royalGuardSelect');
+    const vizardRankSelect = document.getElementById('vizardRankSelect');
+    const clanNameSelect = document.getElementById('clanNameSelect');
+    const generationInput = document.getElementById('generationInput');
     const kenpachiCheckbox = document.getElementById('kenpachi');
+    const vizCaptainCheckbox = document.getElementById('vizCaptain');
+    const vizLieutenantCheckbox = document.getElementById('vizLieutenant');
+    const royalFamilyCaptainCheckbox = document.getElementById('royalFamilyCaptain');
     const preview = document.getElementById('preview');
     const divisionContainer = document.getElementById('divisionContainer');
     const royalGuardContainer = document.getElementById('royalGuardContainer');
+    const vizardRankContainer = document.getElementById('vizardRankContainer');
+    const royalFamilyContainer = document.getElementById('royalFamilyContainer');
     const kenpachiContainer = document.getElementById('kenpachiContainer');
+    const vizCaptainContainer = document.getElementById('vizCaptainContainer');
+    const vizLieutenantContainer = document.getElementById('vizLieutenantContainer');
     const nameInput = document.getElementById('nameInput');
     const htmlCodeContainer = document.getElementById('htmlCode');
-    
-    const rankDetails = {
-        captain: {
-            divisionVisible: true,
-            royalGuardVisible: false,
-            kenpachiVisible: true
-        },
-        lieutenant: {
-            divisionVisible: true,
-            royalGuardVisible: false,
-            kenpachiVisible: false
-        },
-        royalGuard: {
-            divisionVisible: false,
-            royalGuardVisible: true,
-            kenpachiVisible: false
-        }
+
+    const rankColors = {
+        royalFamily: "#a9fefe",
+        royalGuard: "#640000",
+        captainKenpachi: "#ff6a13",
+        captain: "#62bdfe",
+        lieutenant: "#3a76a1",
+        vizard: "#fe5858",
+        vizardCaptain: "#524cb1"
     };
 
     function updatePreview() {
@@ -34,48 +36,95 @@ document.addEventListener('DOMContentLoaded', function () {
         let selectedRank = rankSelect.value;
         let selectedDivision = divisionSelect.value;
         let selectedRoyalGuard = royalGuardSelect.options[royalGuardSelect.selectedIndex].text;
+        let selectedVizardRank = vizardRankSelect.options[vizardRankSelect.selectedIndex].text;
+        let selectedClan = clanNameSelect.options[clanNameSelect.selectedIndex].text;
+        let generation = generationInput.value;
         let kenpachiStatus = kenpachiCheckbox.checked;
-        let userName = nameInput.value.trim(); 
+        let vizCaptainStatus = vizCaptainCheckbox.checked;
+        let vizLieutenantStatus = vizLieutenantCheckbox.checked;
+        let royalFamilyCaptainStatus = royalFamilyCaptainCheckbox.checked;
+        let userName = nameInput.value.trim();
 
         let previewText = '';
         let htmlCodeText = '';
+        let textColor = "#ffffff"; 
 
         if (userName) {
             previewText += `${userName} | `;
-            htmlCodeText += `<font color="#000000" face="${selectedFont}">${userName} | `;
         }
 
-        if (selectedRank === 'royalGuard') {
+        if (selectedRank === 'royalFamily') {
+            textColor = rankColors.royalFamily;
+            if (royalFamilyCaptainStatus) {
+                previewText += `${selectedClan} Head </br> Captain of the ${selectedDivision} Division`;
+            } else {
+                previewText += `${generation} Gen </br> Head of the ${selectedClan}`;
+            }
+        }
+        
+        else if (selectedRank === 'royalGuard') {
+            textColor = rankColors.royalGuard;
             previewText += selectedRoyalGuard;
-            htmlCodeText += selectedRoyalGuard;
-        } else {
-            previewText += `${selectedRank.charAt(0).toUpperCase() + selectedRank.slice(1)} of The ${selectedDivision} Division`;
-            htmlCodeText += `${selectedRank.charAt(0).toUpperCase() + selectedRank.slice(1)} of The ${selectedDivision} Division`;
-        }
-
-        if (kenpachiStatus && selectedRank === 'captain') {
-            previewText += " | Kenpachi";
-            htmlCodeText += " | Kenpachi";
+        } 
+        else if (selectedRank === 'vizard') {
+            if (vizCaptainStatus) {
+                textColor = rankColors.vizardCaptain;
+                previewText += `🎭${selectedVizardRank}🎭 </br> Captain of the ${selectedDivision} Division`;
+            } else if (vizLieutenantStatus) {
+                textColor = rankColors.vizard;
+                previewText += `🎭${selectedVizardRank}🎭 </br> Lieutenant of the ${selectedDivision} Division`;
+            } else {
+                textColor = rankColors.vizard;
+                previewText += `🎭${selectedVizardRank}🎭`;
+            }
+        } 
+        else if (selectedRank === 'captain') {
+            textColor = kenpachiStatus ? rankColors.captainKenpachi : rankColors.captain;
+            previewText += `Captain of the ${selectedDivision} Division`;
+            if (kenpachiStatus) {
+                previewText += " | Kenpachi";
+            }
+        } 
+        else if (selectedRank === 'lieutenant') {
+            textColor = rankColors.lieutenant;
+            previewText += `Lieutenant of the ${selectedDivision} Division`;
         }
 
         preview.style.fontFamily = selectedFont;
-        preview.textContent = previewText;
-        
-        // Update the HTML code preview
-        htmlCodeText += `</font>`;
+        preview.style.color = textColor;
+        preview.innerHTML = previewText;
+
+        htmlCodeText = `<font color="${textColor}" face="${selectedFont}">${previewText}</font>`;
         htmlCodeContainer.textContent = htmlCodeText;
 
-        divisionContainer.style.display = rankDetails[selectedRank].divisionVisible ? 'block' : 'none';
-        royalGuardContainer.style.display = rankDetails[selectedRank].royalGuardVisible ? 'block' : 'none';
-        kenpachiContainer.style.display = rankDetails[selectedRank].kenpachiVisible ? 'block' : 'none';
+        divisionContainer.style.display = (selectedRank === 'captain' || selectedRank === 'lieutenant' || vizCaptainStatus || vizLieutenantStatus || royalFamilyCaptainStatus) ? 'block' : 'none';
+        royalGuardContainer.style.display = selectedRank === 'royalGuard' ? 'block' : 'none';
+        vizardRankContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
+        royalFamilyContainer.style.display = selectedRank === 'royalFamily' ? 'block' : 'none';
+        kenpachiContainer.style.display = selectedRank === 'captain' ? 'block' : 'none';
+        vizCaptainContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
+        vizLieutenantContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
+
+        if (vizCaptainStatus || vizLieutenantStatus || royalFamilyCaptainStatus || selectedRank === 'royalFamily') {
+            kenpachiCheckbox.checked = false;
+            kenpachiCheckbox.disabled = true;
+        } else {
+            kenpachiCheckbox.disabled = false;
+        }
     }
 
     rankSelect.addEventListener('change', updatePreview);
     fontSelect.addEventListener('change', updatePreview);
     divisionSelect.addEventListener('change', updatePreview);
     royalGuardSelect.addEventListener('change', updatePreview);
+    vizardRankSelect.addEventListener('change', updatePreview);
+    clanNameSelect.addEventListener('change', updatePreview);
+    generationInput.addEventListener('input', updatePreview);
     kenpachiCheckbox.addEventListener('change', updatePreview);
-    nameInput.addEventListener('input', updatePreview); 
+    vizCaptainCheckbox.addEventListener('change', updatePreview);
+    vizLieutenantCheckbox.addEventListener('change', updatePreview);
+    royalFamilyCaptainCheckbox.addEventListener('change', updatePreview);
+    nameInput.addEventListener('input', updatePreview);
 
     updatePreview();
 });

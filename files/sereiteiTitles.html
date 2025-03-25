@@ -10,7 +10,9 @@
 </head>
 <body>
 
+
     <div id="formContainer">
+        <a href="../home.html"><h1>Back</h1></a>
         <form>
             <h1>Enter Your Name: </h1>
             <input type="text" id="nameInput" placeholder="Enter your name" />
@@ -51,10 +53,43 @@
 
             <h1>Select Rank:</h1>
             <select id="rankSelect">
+                <option value="royalFamily">Royal Family Leader</option>
                 <option value="royalGuard">Royal Guard</option>
                 <option value="captain">Captain</option>
+                <option value="vizard">Vizard</option>
                 <option value="lieutenant">Lieutenant</option>
             </select>
+
+            <div id="royalFamilyContainer" style="display: none;">
+                <label for="generationInput"><h1>Generation:</h1></label>
+                <input type="number" id="generationInput" min="1" placeholder="Enter Generation">
+                
+                <label for="clanNameSelect"><h1>Clan Name:</h1></label>
+                <select id="clanNameSelect">
+                    <option value="Shihoin">Shihoin</option>
+                    <option value="Kuchiki">Kuchiki</option>
+                    <option value="Shiba">Shiba</option>
+                    <option value="Urahara">Urahara</option>
+                    <option value="YourClan">Your Custom Clan</option>
+                </select>
+            
+                <label for="royalFamilyCaptain"><h1>Captain</h1></label>
+                <input type="checkbox" id="royalFamilyCaptain">
+            </div>
+
+            <div id="vizardRankContainer" style="display: none;">
+                <h1>Vizard Rank:</h1>
+                <select id="vizardRankSelect">
+                    <option value="Shinji Hirako">Shinji Hirako</option>
+                    <option value="Kensei Muguruma">Kensei Muguruma</option>
+                    <option value="Hachigen Ushōda">Hachigen Ushōda</option>
+                    <option value='Rōjūrō "Rose" Ōtoribashi'>Rōjūrō "Rose" Ōtoribashi</option>
+                    <option value="Love Aikawa">Love Aikawa</option>
+                    <option value="Mashiro Kuna">Mashiro Kuna</option>
+                    <option value="Lisa Yadōmaru">Lisa Yadōmaru</option>
+                    <option value="Hiyori Sarugaki">Hiyori Sarugaki</option>
+                </select>
+            </div>
 
             <div id="divisionContainer" style="display: none;">
                 <h1>Select Division:</h1>
@@ -84,10 +119,28 @@
                 </select>
             </div>
 
+            <div id="royalFamilyContainer" style="display: none;">
+                <h1>Choose your royal family</h1>
+                <select id="royalFamilySelect">
+                    <option value=""></option>
+                </select>
+            </div>
+
             <div id="kenpachiContainer" style="display: none;">
                 <input type="checkbox" id="kenpachi" name="kenpachi">
                 <label for="kenpachi"><h1>Kenpachi</h1></label>
             </div>
+
+            <div id="vizCaptainContainer" style="display: none;">
+                <input type="checkbox" id="vizCaptain" name="vizCaptain">
+                <label for="vizCaptain"><h1>Captain</h1></label>
+            </div>
+
+            <div id="vizLieutenantContainer" style="display: none;">
+                <input type="checkbox" id="vizLieutenant">
+                <label for="vizLieutenant"><h1>Lieutenant</h1></label>
+            </div>            
+
         </form>
 
         <div id="preview"></div>
