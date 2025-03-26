@@ -138,12 +138,13 @@ document.addEventListener('DOMContentLoaded', function () {
         vizCaptainContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
         vizLieutenantContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
 
-        if (vizCaptainStatus || vizLieutenantStatus || royalFamilyCaptainStatus || selectedRank === 'royalFamily') {
-            kenpachiCheckbox.checked = false;
-            kenpachiCheckbox.disabled = true;
+        if (selectedRank === 'captain') {
+            kenpachiCheckbox.disabled = false; 
         } else {
-            kenpachiCheckbox.disabled = false;
+            kenpachiCheckbox.checked = false; 
+            kenpachiCheckbox.disabled = true;
         }
+        
     }
 
     rankSelect.addEventListener('change', updatePreview);
