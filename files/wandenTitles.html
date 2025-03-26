@@ -3,10 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wanden Titles</title>
+    <link href="./fonts.css" rel="stylesheet">
+    <link href="./styling.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Roboto+Mono:wght@400;700&family=Oswald:wght@400;700&family=Merriweather:wght@400;700&family=Ubuntu:wght@400;700&family=Nunito:wght@400;700&family=Indie+Flower&family=Bangers&family=Amatic+SC:wght@400;700&family=Permanent+Marker&family=Patrick+Hand&family=Jura:wght@400;700&family=Josefin+Sans:wght@400;700&family=Grenze+Gotisch:wght@400;700&family=Fredoka+One&family=Fondamento&family=DejaVu+Sans+Mono&family=Creepster&family=Kalam&family=Luckiest+Guy&family=Titillium+Web:wght@400;700&family=Special+Elite&family=Sarpanch:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Gotham:wght@400;700&family=EB+Garamond:wght@400;700&family=Bodoni+Moda:wght@400;700&family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="../home.html"><h1>Back</h1></a>
+
+
+    <div id="formContainer">
+        <a href="../home.html"><h1>Back</h1></a>
+        <form>
+            <h1>Enter Your Name: </h1>
+            <input type="text" id="nameInput" placeholder="Enter your name" />
+
+            <h1>Select a Font Style: </h1>
+            <select id="fontSelect">
+                <option class="roboto" value="Roboto">Roboto</option>
+                <option class="roboto-condensed" value="RobotoCondensed">Roboto Condensed</option>
+                <option class="roboto-mono" value="RobotoMono">Roboto Mono</option>
+                <option class="oswald" value="Oswald">Oswald</option>
+                <option class="merriweather" value="Merriweather">Merriweather</option>
+                <option class="ubuntu" value="Ubuntu">Ubuntu</option>
+                <option class="nunito" value="Nunito">Nunito</option>
+                <option class="indie-flower" value="IndieFlower">Indie Flower</option>
+                <option class="bangers" value="Bangers">Bangers</option>
+                <option class="amatic-sc" value="AmaticSC">Amatic SC</option>
+                <option class="permanent-marker" value="PermanentMarker">Permanent Marker</option>
+                <option class="patrick-hand" value="PatrickHand">Patrick Hand</option>
+                <option class="jura" value="Jura">Jura</option>
+                <option class="josefin-sans" value="JosefinSans">Josefin Sans</option>
+                <option class="grenze-gotisch" value="GrenzeGotisch">Grenze Gotisch</option>
+                <option class="fredoka-one" value="FredokaOne">Fredoka One</option>
+                <option class="fondamento" value="Fondamento">Fondamento</option>
+                <option class="deja-vu-mono" value="DejaVuMono">DejaVu Mono</option>
+                <option class="creepster" value="Creepster">Creepster</option>
+                <option class="kalam" value="Kalam">Kalam</option>
+                <option class="luckiest-guy" value="LuckiestGuy">Luckiest Guy</option>
+                <option class="titillium-web" value="TitilliumWeb">Titillium Web</option>
+                <option class="special-elite" value="SpecialElite">Special Elite</option>
+                <option class="sarpanch" value="Sarpanch">Sarpanch</option>
+                <option class="source-sans-pro" value="SourceSansPro">Source Sans Pro</option>
+                <option class="gotham" value="Gotham">Gotham</option>
+                <option class="eb-garamond" value="EBGaramond">EB Garamond</option>
+                <option class="bodoni-moda" value="BodoniModa">Bodoni Moda</option>
+                <option class="cinzel" value="Cinzel">Cinzel</option>
+                <option class="cinzel-decorative" value="CinzelDecorative">Cinzel Decorative</option>
+            </select>
+
+            <h1>Select Rank:</h1>
+            <select id="rankSelect">
+                <option value="schutzstaffel">Schutzstaffel</option>
+                <option value="sternritter">Sternritter</option>
+                <option value="jagdarmee">Jagdarmee</option>
+                <option value="wachritter">Wachritter</option>
+            </select>
+
+            <div id="sternContainer" style="display: none;">
+                <h1>Select Sternritter Letter:</h1>
+                <select id="sternRankSelect">
+                    <option value="A - The Almighty">A - The Almighty</option>
+                    <option value="A - The Antithesis">A - The Antithesis</option>
+                    <option value="B - The Balance">B - The Balance</option>
+                    <option value="C - The Compulsory">C - The Compulsory</option>
+                    <option value="D - The Deathdealing">D - The Deathdealing</option>
+                    <option value="E - The Explode">E - The Explode</option>
+                    <option value="F - The Fear">F - The Fear</option>
+                    <option value="G - The Glutton">G - The Glutton</option>
+                    <option value="H - The Heat">H - The Heat</option>
+                    <option value="I - The Iron">I - The Iron</option>
+                    <option value="J- The Jail">J - The Jail</option>
+                    <option value="K - The Knowledge">K - The Knowledge</option>
+                    <option value="L - The Love">L - The Love</option>
+                    <option value="M - The Miracle">M - The Miracle</option>
+                    <option value="N - The Nimble">N - The Nimble</option>
+                    <option value="O - The Overkill">O - The Overkill</option>
+                    <option value="P - The Power">P - The Power</option>
+                    <option value="Q - The Question">Q - The Question</option>
+                    <option value="R - The Roar">R - The Roar</option>
+                    <option value="S - The Superstar">S - The Superstar</option>
+                    <option value="T - The Thunderbolt">T - The Thunderbolt</option>
+                    <option value="U - The Underbelly">U - The Underbelly</option>
+                    <option value="V - The Visionary">V - The Visionary</option>
+                    <option value="W - The Wind">W - The Wind</option>
+                    <option value="X - The X-Axis">X - The X-Axis</option>
+                    <option value="Y - The Yourself">Y - The Yourself</option>
+                    <option value="Z - The Zombie">Z - The Zombie</option>
+                </select>
+            </div>
+
+            <div id="schutzContainer" style="display: none;">
+                <h1>Choose Schutzstaffel Rank:</h1>
+                <select id="schutzSelect">
+                    <option value="Archangel Michael">Archangel Michael</option>
+                    <option value="Archangel Gabriel">Archangel Gabriel</option>
+                    <option value="Archangel Raphael">Archangel Raphael</option>
+                    <option value="Archangel Uriel">Archangel Uriel</option>
+                </select>
+            </div>
+            
+            <div id="jagContainer" style="display: none;">
+                <h1>Choose Jagdarmee Rank:</h1>
+                <select id="jagSelect">
+                    <option value="#1 Der Jagdkommandant">#1 Der Jagdkommandant</option>
+                    <option value="#2 Der Jagdhenker">#2 Der Jagdhenker</option>
+                    <option value="#3 Der Jagdschütze">#3 Der Jagdschütze</option>
+                    <option value="#4 Der Jagdspäher">#4 Der Jagdspäher</option>
+                    <option value="#5 Der Jagdzwinger">#5 Der Jagdzwinger</option>
+                    <option value="#6 Der Jagdreißer">#6 Der Jagdreißer</option>
+                </select>
+            </div>
+
+            <div id="wachContainer" style="display: none;">
+                <h1>Choose Wachritter Rank:</h1>
+                <input type="text" id="wachRank" maxlength="1">
+            </div>
+
+        </form>
+
+        <div id="preview"></div>
+        
+        <div id="htmlCodeContainer" style="margin-top: 20px;">
+            <h1>HTML Code:</h1>
+            <h2><pre id="htmlCode"></pre></h2>
+        </div>
+        
+
+    </div>
+
+
+    <script src="./wandenScripts.js"></script>
 
 </body>
 </html>
