@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
         preview.style.color = textColor;
         preview.innerHTML = previewText;
     
-        htmlCodeText = `<font color="${textColor}" face="${googleFont}">${previewText}</font>`;
+        htmlCodeText = `<font color="${textColor}" face="${selectedFont}">${previewText}</font>`;
         htmlCodeContainer.textContent = htmlCodeText;
     
         espadaContainer.style.display = selectedRank === "espada" ? "block" : "none";
