@@ -130,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
         htmlCodeText = `<font color="${textColor}" face="${selectedFont}">${previewText}</font>`;
         htmlCodeContainer.textContent = htmlCodeText;
 
-        divisionContainer.style.display = (selectedRank === 'captain' || selectedRank === 'lieutenant' || vizCaptainStatus || vizLieutenantStatus || royalFamilyCaptainStatus) ? 'block' : 'none';
         royalGuardContainer.style.display = selectedRank === 'royalGuard' ? 'block' : 'none';
         vizardRankContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
         royalFamilyContainer.style.display = selectedRank === 'royalFamily' ? 'block' : 'none';
@@ -143,6 +142,27 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             kenpachiCheckbox.checked = false; 
             kenpachiCheckbox.disabled = true;
+        }
+        if (selectedRank === 'royalFamily') {
+            royalFamilyCaptainCheckbox.disabled = false;
+        } else {
+            royalFamilyCaptainCheckbox.checked = false;
+            royalFamilyCaptainCheckbox.disabled = true;
+        }
+        if (selectedRank === 'vizard') {
+            vizCaptainCheckbox.disabled = false;
+            vizLieutenantCheckbox.disabled = false;
+        } else {
+            vizCaptainCheckbox.checked = false;
+            vizCaptainCheckbox.disabled = true;
+            vizLieutenantCheckbox.checked = false;
+            vizLieutenantCheckbox.disabled = true;
+        }
+
+        if (royalFamilyCaptainCheckbox.checked === true || vizCaptainCheckbox.checked === true || vizLieutenantCheckbox.checked === true || selectedRank === 'captain' || selectedRank === 'lieutenant') {
+            divisionContainer.style.display = 'block';
+        } else {
+            divisionContainer.style.display = 'none';
         }
         
     }
