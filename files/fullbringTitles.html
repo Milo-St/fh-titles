@@ -3,10 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>X-Cution Titles</title>
+    <link href="./fonts.css" rel="stylesheet">
+    <link href="./styling.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Roboto+Mono:wght@400;700&family=Oswald:wght@400;700&family=Merriweather:wght@400;700&family=Ubuntu:wght@400;700&family=Nunito:wght@400;700&family=Indie+Flower&family=Bangers&family=Amatic+SC:wght@400;700&family=Permanent+Marker&family=Patrick+Hand&family=Jura:wght@400;700&family=Josefin+Sans:wght@400;700&family=Grenze+Gotisch:wght@400;700&family=Fredoka+One&family=Fondamento&family=DejaVu+Sans+Mono&family=Creepster&family=Kalam&family=Luckiest+Guy&family=Titillium+Web:wght@400;700&family=Special+Elite&family=Sarpanch:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Gotham:wght@400;700&family=EB+Garamond:wght@400;700&family=Bodoni+Moda:wght@400;700&family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="../home.html"><h1>Back</h1></a>
+
+
+    <div id="formContainer">
+        <a href="../home.html"><h1>Back</h1></a>
+        <form>
+            <h1>Enter Your Name: </h1>
+            <input type="text" id="nameInput" placeholder="Enter your name" />
+
+            <h1>Font:</h1>
+            <select id="fontSelect">
+                <option class="roboto-condensed" value="RobotoCondensed">Roboto Condensed</option>
+            </select>
+
+            <h1>Select Rank:</h1>
+            <select id="rankSelect">
+                <option value="dominus">Dominus</option>
+                <option value="custodes">Custodes</option>
+                <option value="venire">Venire</option>
+                <option value="manifestation">Full Manifestation Artists</option>
+            </select>
+
+            <div id="custodesContainer" style="display: none;">
+                <h1>Select Custodes rank:</h1>
+                <select id="custodesRankSelect">
+                    <option value="[ 日 ] Custos Solis">[ 日 ] Custos Solis</option>
+                    <option value="[ 月 ] Custos Luna">[ 月 ] Custos Luna</optiovenn>
+                    <option value="[ 空 ] Custos Aeris">[ 空 ] Custos Aeris</option>
+                    <option value="[ 峰 ] Custos Culminis">[ 峰 ] Custos Culminis</option>
+                    <option value="[ 水 ] Custos Aquae">[ 水 ] Custos Aquae</option>
+                    <option value="[ 原 ] Custos Vitae">[ 原 ] Custos Vitae</option>
+                    <option value="[ 火 ] Custos Flammae">[ 火 ] Custos Flammae</option>
+                    <option value="[ 炎 ] Custos Incendiorum">[ 炎 ] Custos Incendiorum</option>
+                </select>
+            </div>
+
+            <div id="dominusContainer" style="display: none;">
+                <h1>Choose Dominus Rank:</h1>
+                <select id="dominusSelect">
+                    <option value="[ 星の主 ] Dominus Stellarum">[ 星の主 ] Dominus Stellarum</option>
+                    <option value="[ 風の主 ] Dominus Ventus">[ 風の主 ] Dominus Ventus</option>
+                    <option value="[ 海の主 ] Dominus Maria">[ 海の主 ] Dominus Maria</option>
+                    <option value="[ 灰の主 ] Dominus Cineris">[ 灰の主 ] Dominus Cineris</option>
+                </select>
+            </div>
+            
+            <div id="venireContainer" style="display: none;">
+                <h1>Choose Venire Rank:</h1>
+                <select id="venireSelect">
+                    <option value="Kuza [一]">Kuza [一]</option>
+                    <option value="Kuza [二]">Kuza [二]</option>
+                    <option value="Kuza [三]">Kuza [三]</option>
+                    <option value="Kuza [四]">Kuza [四]</option>
+                    <option value="Kuza [五]">Kuza [五]</option>
+                    <option value="Kuza [六]">Kuza [六]</option>
+                </select>
+            </div>
+
+            <div id="manifestationContainer" style="display: none;">
+                <h1>Chhoose Full Manifestation Artist Rank:</h1>
+                <select id="manifestationSelect">
+                    <option value="<br/>001 | Kūgo Ginjō">Kūgo Ginjō</option>
+                    <option value="<br/>002 | Tsukishima Shūkurō">Tsukishima Shūkurō</option>
+                    <option value="<br/>004 | Giriko Kutsuzawa">Giriko Kutsuzawa</option>
+                    <option value='<br/>007 | Yasutora "Chad" Sado'>Yasutora "Chad" Sado</option>
+                    <option value="<br/>006 | Jackie Tristan">Jackie Tristan</option>
+                    <option value="<br/>003 | Riruka Dokugamine">Riruka Dokugamine</option>
+                    <option value="<br/>005 | Yukio Hans Vorarlberna">Yukio Hans Vorarlberna</option>
+                </select>
+            </div>
+
+        </form>
+
+        <div id="preview"></div>
+        
+        <div id="htmlCodeContainer" style="margin-top: 20px;">
+            <h1>HTML Code:</h1>
+            <h2><pre id="htmlCode"></pre></h2>
+        </div>
+        
+
+    </div>
+
+
+    <script src="xcutionScript.js"></script>
 
 </body>
 </html>
