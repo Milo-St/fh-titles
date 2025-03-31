@@ -3,11 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const rankSelect = document.getElementById('rankSelect');
     const sternRankSelect = document.getElementById('sternRankSelect');
     const schutzSelect = document.getElementById('schutzSelect');
+    const komSelect = document.getElementById('komSelect');
     const jagSelect = document.getElementById('jagSelect');
     const wachRank = document.getElementById('wachRank')
     const preview = document.getElementById('preview');
     const sternContainer = document.getElementById('sternContainer');
     const schutzContainer = document.getElementById('schutzContainer');
+    const komContainer = document.getElementById('komContainer');
     const jagContainer = document.getElementById('jagContainer');
     const wachContainer = document.getElementById('wachContainer');
     const nameInput = document.getElementById('nameInput');
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         sternritter: "#8d01f6",
         wachritter: "#3c5dd9",
         schutzstaffel: "#f5fc68",
+        apexKom: "#ca0003",
         jagdarmee: "#24ad80",
     };
 
@@ -59,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let selectedSternRank = sternRankSelect.value;
         let selectedSchutz = schutzSelect.value;
         let selectedJag = jagSelect.value;
+        let selectedKom = komSelect.value;
         let selectedWach = wachRank.value.trim();
         let userName = nameInput.value.trim();
     
@@ -73,6 +77,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 textColor = rankColors.sternritter;
                 previewText = `${selectedSternRank}`;
         } 
+        else if (selectedRank === "kommandant") {
+            if (selectedKom === "Apex Jagkommandant") {
+                textColor = rankColors.apexKom;
+                previewText = `${selectedKom}`;
+            }
+            else {
+                textColor = rankColors;
+                previewText = `${selectedKom}`;
+            }
+        }
         else if (selectedRank === "jagdarmee") {
             textColor = rankColors.jagdarmee;
             previewText = `${selectedJag}`;
@@ -95,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         sternContainer.style.display = selectedRank === "sternritter" ? "block" : "none";
         schutzContainer.style.display = selectedRank === "schutzstaffel" ? "block" : "none";
+        komContainer.style.display = selectedRank === "kommandant" ? "block" : "none";
         jagContainer.style.display = selectedRank === "jagdarmee" ? "block" : "none";
         wachContainer.style.display = selectedRank === "wachritter" ? "block" : "none";
     }
@@ -103,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fontSelect.addEventListener("change", updatePreview);
     sternRankSelect.addEventListener("change", updatePreview);
     schutzSelect.addEventListener("change", updatePreview);
+    komSelect.addEventListener("change", updatePreview);
     jagSelect.addEventListener("change", updatePreview);
     wachRank.addEventListener("input", updatePreview);
     nameInput.addEventListener("input", updatePreview);
