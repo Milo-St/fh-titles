@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         wachritter: "#3c5dd9",
         schutzstaffel: "#f5fc68",
         apexKom: "#ca0003",
+        kommandant: "#077028",
         jagdarmee: "#24ad80",
     };
 
@@ -78,12 +79,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 previewText = `${selectedSternRank}`;
         } 
         else if (selectedRank === "kommandant") {
-            if (selectedKom === "Apex Jagkommandant") {
+            if (selectedKom === "Der Kriegsherr") {
                 textColor = rankColors.apexKom;
                 previewText = `${selectedKom}`;
             }
             else {
-                textColor = rankColors;
+                textColor = rankColors.kommandant;
                 previewText = `${selectedKom}`;
             }
         }
