@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hell Titles</title>
+    <link href="./fonts.css" rel="stylesheet">
+    <link href="./styling.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Roboto+Mono:wght@400;700&family=Oswald:wght@400;700&family=Merriweather:wght@400;700&family=Ubuntu:wght@400;700&family=Nunito:wght@400;700&family=Indie+Flower&family=Bangers&family=Amatic+SC:wght@400;700&family=Permanent+Marker&family=Patrick+Hand&family=Jura:wght@400;700&family=Josefin+Sans:wght@400;700&family=Grenze+Gotisch:wght@400;700&family=Fredoka+One&family=Fondamento&family=DejaVu+Sans+Mono&family=Creepster&family=Kalam&family=Luckiest+Guy&family=Titillium+Web:wght@400;700&family=Special+Elite&family=Sarpanch:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Gotham:wght@400;700&family=EB+Garamond:wght@400;700&family=Bodoni+Moda:wght@400;700&family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <div id="formContainer">
+        <a href="../home.html"><h1>Back</h1></a>
+        <form>
+            <h1>Enter Your Name: </h1>
+            <input type="text" id="nameInput" placeholder="Enter your name" />
+
+            <h1>Font:</h1>
+            <select id="fontSelect">
+                <option class="roboto-condensed" value="RobotoCondensed">Roboto Condensed</option>
+            </select>
+
+            <h1>Select Rank:</h1>
+            <select id="rankSelect">
+                <option value="monarch">Monarch</option>
+                <option value="archon">Archon</option>
+                <option value="viscount">Viscount</option>
+            </select>
+
+            <div id="archonContainer" style="display: none;">
+                <h1>Select Archon rank:</h1>
+                <select id="archonRankSelect">
+                    <option value="Archon of Flesh and Blood">Archon of Flesh and Blood</option>
+                    <option value="Archon of Shattered Skies">Archon of Shattered Skies</option>
+                    <option value="Archon of the Pale Ember">Archon of the Pale Ember</option>
+                    <option value="Archon of the First Spark">Archon of the First Spark</option>
+                    <option value="Archon of the Territorial Maw">Archon of the Territorial Maw</option>
+                    <option value="Archon of the Frozen Veil">Archon of the Frozen Veil</option>
+                    <option value="Archon of the Forge">Archon of the Forge</option>
+                </select>
+            </div>
+
+            <div id="monarchContainer" style="display: none;">
+                <h1>Choose Monarch Rank:</h1>
+                <select id="monarchSelect">
+                    <option value="Monarch of Transfiguration">Monarch of Transfiguration</option>
+                    <option value="Monarch of Destruction">Monarch of Destruction</option>
+                    <option value="Monarch of the White Flames">Monarch of the White Flames</option>
+                    <option value="Monarch of the Beginning">Monarch of the Beginning</option>
+                    <option value="Monarch of the Iron Body">Monarch of the Iron Body</option>
+                </select>
+            </div>
+            
+            <div id="viscountContainer" style="display: none;">
+                <h1>Choose Viscount Rank:</h1>
+                <select id="viscountSelect">
+                    <option value="Viscount of the Shifting Flesh">Viscount of the Shifting Flesh</option>
+                    <option value="Viscount of the Wasted Horizon">Viscount of the Wasted Horizon</option>
+                    <option value="Viscount of Embers Tone">Viscount of Embers Tone</option>
+                    <option value="Viscount of the Shaping Hand">Viscount of the Shaping Hand</option>
+                    <option value="Viscount of the Mawfangs' Bound">Viscount of the Mawfangs' Bound</option>
+                    <option value="Viscount of the Glacial Ensign">Viscount of the Glacial Ensign</option>
+                    <option value="Viscount of the Steels Hammer">Viscount of the Steels Hammer</option>
+                </select>
+            </div>
+
+        </form>
+
+        <div id="preview"></div>
+        
+        <div id="htmlCodeContainer" style="margin-top: 20px;">
+            <h1>HTML Code:</h1>
+            <h2><pre id="htmlCode"></pre></h2>
+        </div>
+        
+
+    </div>
+
+
+    <script src="./hellScripts.js"></script>
+
+</body>
+</html>
