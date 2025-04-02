@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         monarch: "#ff350e",
         archon: "#000080",
         viscount: "#b4b6b1",
+        tyranny: "#a3d8b1",
     };
 
     function updatePreview() {
@@ -66,9 +67,14 @@ document.addEventListener('DOMContentLoaded', function () {
             previewText = `${selectedMonarch}`;
         } 
         else if (selectedRank === "archon") {
+            if (selectedArchonRank === "Archon of Tyranny"){
+                textColor = rankColors.tyranny;
+                previewText = `${selectedArchonRank}`
+            }
+            else {
                 textColor = rankColors.archon;
                 previewText = `${selectedArchonRank}`;
-            
+            }
         } 
         else if (selectedRank === "viscount") {
             textColor = rankColors.viscount;
