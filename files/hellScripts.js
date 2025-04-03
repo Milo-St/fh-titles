@@ -45,9 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const rankColors = {
         monarch: "#ff350e",
-        archon: "#000080",
+        archon: "#FFFFFF",
         viscount: "#b4b6b1",
-        tyranny: "#a3d8b1",
+        tyranny: "#CF1020",
+        shadow: "#2C1334",
     };
 
     function updatePreview() {
@@ -63,8 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
         let htmlCodeText = "";
     
         if (selectedRank === "monarch") {
-            textColor = rankColors.monarch;
-            previewText = `${selectedMonarch}`;
+            if (selectedMonarch === "Monarch of Shadows") {
+                textColor = rankColors.shadow;
+                previewText = `${selectedMonarch}`
+            }
+            else {
+                textColor = rankColors.monarch;
+                previewText = `${selectedMonarch}`;
+            }
         } 
         else if (selectedRank === "archon") {
             if (selectedArchonRank === "Archon of Tyranny"){
