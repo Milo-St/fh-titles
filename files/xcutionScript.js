@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const rankColors = {
         dominus: "#a669e0",
+        gladius: "#0feab5",
         custodes: "#da4b4b",
         venire: "#f0c464",
         ginjo: "#c0bf92",
@@ -72,8 +73,13 @@ document.addEventListener('DOMContentLoaded', function () {
         let htmlCodeText = "";
     
         if (selectedRank === "dominus") {
-            textColor = rankColors.dominus;
-            previewText = `${selectedDominus}`;
+            if (selectedDominus === "Gladius Domini") {
+                textColor = rankColors.gladius;
+                previewText = `${selectedDominus}`
+            } else {
+                textColor = rankColors.dominus;
+                previewText = `${selectedDominus}`;
+            }
         } 
 
         else if (selectedRank === "custodes") {
