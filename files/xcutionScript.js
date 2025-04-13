@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let htmlCodeText = "";
     
         if (selectedRank === "dominus") {
-            if (selectedDominus === "Gladius Domini") {
+            if (selectedDominus === "[主の剣] Gladius Domini") {
                 textColor = rankColors.gladius;
                 previewText = `${selectedDominus}`
             } else {
@@ -83,8 +83,14 @@ document.addEventListener('DOMContentLoaded', function () {
         } 
 
         else if (selectedRank === "custodes") {
+
+            if (selectedCustodesRank === "[主の剣] Gladius Domini") {
+                textColor = rankColors.gladius;
+                previewText = `${selectedCustodesRank}`
+            } else {
                 textColor = rankColors.custodes;
                 previewText = `${selectedCustodesRank}`;
+            }
         }
 
         else if (selectedRank === "venire") {
