@@ -86,6 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
             previewText += `${userName} | `;
         }
 
+        if (generation > 99) {
+            generationInput.value = 99;
+            generation = 99;
+            updatePreview();
+        }
+
         if (selectedRank === 'royalFamily') {
             textColor = rankColors.royalFamily;
             if (royalFamilyCaptainStatus) {
