@@ -126,6 +126,25 @@ document.addEventListener('DOMContentLoaded', function () {
         if (userName && selectedRank === "manifestation") {
             previewText = `${userName} ${previewText}`;
         }
+        else if (userName && selectedRank === "dominus") {
+            if (selectedDominus === "Dominus Terrae") {
+                previewText = `[ 地球の主 ] ${userName} | ${selectedDominus}`;
+            } 
+            else if (selectedDominus === "Dominus Stellarum") {
+                previewText = `[ 星の主 ] ${userName} | ${selectedDominus}`;
+            }
+            else if (selectedDominus === "Dominus Ventus") {
+                previewText = `[ 風の主 ] ${userName} | ${selectedDominus}`;
+            }
+            else if (selectedDominus === "Dominus Maria") {
+                previewText = `[ 海の主 ] ${userName} | ${selectedDominus}`;
+            }
+            else if (selectedDominus === "Dominus Cineris") {
+                previewText = `[ 灰の主 ] ${userName} | ${selectedDominus}`;
+            }
+        }
+        
+        
         else if (userName) {
             previewText = `${userName} | ${previewText}`;
         }
