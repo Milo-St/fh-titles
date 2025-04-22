@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 previewText = `${selectedSternRank}`;
         } 
         else if (selectedRank === "kommandant") {
-            if (selectedKom === "Der Kriegsherr") {
+            if (selectedKom === "Der Freischütz") {
                 textColor = rankColors.apexKom;
                 previewText = `${selectedKom}`;
             }
