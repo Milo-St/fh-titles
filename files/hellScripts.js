@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const rankColors = {
-        monarch: "#ffffff",
+        monarch: "#6A0DAD",
         archon: "#8f0606",
         viscount: "#d44e15",
     };
