@@ -44,11 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const rankColors = {
-        monarch: "#ff350e",
-        archon: "#FFFFFF",
-        viscount: "#b4b6b1",
-        tyranny: "#CF1020",
-        shadow: "#2C1334",
+        monarch: "#ffffff",
+        archon: "#8f0606",
+        viscount: "#d44e15",
     };
 
     function updatePreview() {
