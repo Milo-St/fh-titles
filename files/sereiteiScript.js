@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const kenpachiCheckbox = document.getElementById('kenpachi');
     const vizCaptainCheckbox = document.getElementById('vizCaptain');
     const vizLieutenantCheckbox = document.getElementById('vizLieutenant');
-    const royalFamilyCaptainCheckbox = document.getElementById('royalFamilyCaptain');
+    // const royalFamilyCaptainCheckbox = document.getElementById('royalFamilyCaptain');
     const preview = document.getElementById('preview');
     const divisionContainer = document.getElementById('divisionContainer');
     const royalGuardContainer = document.getElementById('royalGuardContainer');
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let kenpachiStatus = kenpachiCheckbox.checked;
         let vizCaptainStatus = vizCaptainCheckbox.checked;
         let vizLieutenantStatus = vizLieutenantCheckbox.checked;
-        let royalFamilyCaptainStatus = royalFamilyCaptainCheckbox.checked;
+        // let royalFamilyCaptainStatus = royalFamilyCaptainCheckbox.checked;
         let userName = nameInput.value.trim();
 
         let previewText = '';
@@ -94,11 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (selectedRank === 'royalFamily') {
             textColor = rankColors.royalFamily;
-            if (royalFamilyCaptainStatus) {
-                previewText += `${selectedClan} Head <br/> Captain of The ${selectedDivision} Division`;
-            } else {
+            // if (royalFamilyCaptainStatus) {
+            //     previewText += `${selectedClan} Head <br/> Captain of The ${selectedDivision} Division`;
+            // } else {
                 previewText += `Gen ${generation}<br/> Head of The ${selectedClan} clan`;
-            }
+            // }
         }
         
         else if (selectedRank === 'royalGuard') {
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     kenpachiCheckbox.addEventListener('change', updatePreview);
     vizCaptainCheckbox.addEventListener('change', updatePreview);
     vizLieutenantCheckbox.addEventListener('change', updatePreview);
-    royalFamilyCaptainCheckbox.addEventListener('change', updatePreview);
+    // royalFamilyCaptainCheckbox.addEventListener('change', updatePreview);
     nameInput.addEventListener('input', updatePreview);
 
     updatePreview();
