@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const rankColors = {
+        blade: "#E91E63",
         ceroEspada: "#3554ff",
         espada: "#a70000",
         fantasia: "#b8a2f0",
@@ -61,11 +62,17 @@ document.addEventListener('DOMContentLoaded', function () {
     
         let previewText = "";
         let htmlCodeText = "";
+        let textColor = "";
     
-        if (selectedRank === "fantasia") {
-            textColor = rankColors.fantasia;
-            previewText = `Espada De Fantasia ${selectedFantasia}`;
-        } 
+if (selectedRank === "fantasia") {
+    if (selectedFantasia === "Blade") {
+        textColor = rankColors.blade; // <-- fix: lowercase t
+        previewText = "The Hollow King's Blade";
+    } else {
+        textColor = rankColors.fantasia;
+        previewText = `Espada De Fantasia ${selectedFantasia}`;
+    }
+}
         else if (selectedRank === "espada") {
             if (selectedEspadaRank === "Cero") {
                 textColor = rankColors.ceroEspada;
