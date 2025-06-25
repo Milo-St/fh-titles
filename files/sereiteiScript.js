@@ -77,6 +77,18 @@ document.addEventListener('DOMContentLoaded', function () {
         let vizLieutenantStatus = vizLieutenantCheckbox.checked;
         // let royalFamilyCaptainStatus = royalFamilyCaptainCheckbox.checked;
         let userName = nameInput.value.trim();
+        let selectedVizCaptainDivision = '';
+        let selectedVizLieutenantDivision = '';
+
+        const vizCaptainDivisionSelect = document.getElementById('vizCaptainDivisionSelect');
+        const vizLieutenantDivisionSelect = document.getElementById('vizLieutenantDivisionSelect');
+
+        if (vizCaptainCheckbox && vizCaptainCheckbox.checked && vizCaptainDivisionSelect) {
+            selectedVizCaptainDivision = vizCaptainDivisionSelect.value;
+        }
+        if (vizLieutenantCheckbox && vizLieutenantCheckbox.checked && vizLieutenantDivisionSelect) {
+            selectedVizLieutenantDivision = vizLieutenantDivisionSelect.value;
+        }
 
         let previewText = '';
         let htmlCodeText = '';
@@ -94,13 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (selectedRank === 'royalFamily') {
             textColor = rankColors.royalFamily;
-            // if (royalFamilyCaptainStatus) {
-            //     previewText += `${selectedClan} Head <br/> Captain of The ${selectedDivision} Division`;
-            // } else {
-                previewText += `Gen ${generation}<br/> Head of The ${selectedClan} clan`;
-            // }
+            previewText += `Gen ${generation}<br/> Head of The ${selectedClan} clan`;
         }
-        
         else if (selectedRank === 'royalGuard') {
             textColor = rankColors.royalGuard;
             previewText += selectedRoyalGuard;
@@ -108,10 +115,10 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (selectedRank === 'vizard') {
             if (vizCaptainStatus) {
                 textColor = rankColors.vizardCaptain;
-                previewText += `🎭${selectedVizardRank}🎭 <br/> Captain of The ${selectedDivision} Division`;
+                previewText += `🎭${selectedVizardRank}🎭 <br/> Captain of The ${selectedVizCaptainDivision} Division`;
             } else if (vizLieutenantStatus) {
                 textColor = rankColors.vizard;
-                previewText += `🎭${selectedVizardRank}🎭 <br/> Lieutenant of The ${selectedDivision} Division`;
+                previewText += `🎭${selectedVizardRank}🎭 <br/> Lieutenant of The ${selectedVizLieutenantDivision} Division`;
             } else {
                 textColor = rankColors.vizard;
                 previewText += `🎭${selectedVizardRank}🎭`;
@@ -136,12 +143,19 @@ document.addEventListener('DOMContentLoaded', function () {
         htmlCodeText = `<font color="${textColor}" face="${selectedFont}">${previewText}</font>`;
         htmlCodeContainer.textContent = htmlCodeText;
 
+        // Show/hide containers
         royalGuardContainer.style.display = selectedRank === 'royalGuard' ? 'block' : 'none';
         vizardRankContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
         royalFamilyContainer.style.display = selectedRank === 'royalFamily' ? 'block' : 'none';
         kenpachiContainer.style.display = selectedRank === 'captain' ? 'block' : 'none';
         vizCaptainContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
         vizLieutenantContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
+        // Only show divisionContainer for regular Captain/Lieutenant (not Vizard Captain/Lieutenant)
+        if ((selectedRank === 'captain' || selectedRank === 'lieutenant') && (!vizCaptainCheckbox.checked && !vizLieutenantCheckbox.checked)) {
+            divisionContainer.style.display = 'block';
+        } else {
+            divisionContainer.style.display = 'none';
+        }
 
         if (selectedRank === 'captain') {
             kenpachiCheckbox.disabled = false; 
@@ -165,12 +179,36 @@ document.addEventListener('DOMContentLoaded', function () {
             vizLieutenantCheckbox.disabled = true;
         }
 
-        if (royalFamilyCaptainCheckbox.checked === true || vizCaptainCheckbox.checked === true || vizLieutenantCheckbox.checked === true || selectedRank === 'captain' || selectedRank === 'lieutenant') {
-            divisionContainer.style.display = 'block';
+        // Always update Vizard division selectors/labels after any change
+        updateVizardDivisionSelectors();
+    }
+
+    function updateVizardDivisionSelectors() {
+        const vizCaptainDivisionContainer = document.getElementById('vizCaptainDivisionContainer');
+        const vizLieutenantDivisionContainer = document.getElementById('vizLieutenantDivisionContainer');
+
+        if (vizCaptainCheckbox.checked) {
+            if (vizCaptainDivisionContainer) {
+                vizCaptainDivisionContainer.style.display = 'block';
+            }
+            if (vizLieutenantDivisionContainer) {
+                vizLieutenantDivisionContainer.style.display = 'none';
+            }
+        } else if (vizLieutenantCheckbox.checked) {
+            if (vizLieutenantDivisionContainer) {
+                vizLieutenantDivisionContainer.style.display = 'block';
+            }
+            if (vizCaptainDivisionContainer) {
+                vizCaptainDivisionContainer.style.display = 'none';
+            }
         } else {
-            divisionContainer.style.display = 'none';
+            if (vizCaptainDivisionContainer) {
+                vizCaptainDivisionContainer.style.display = 'none';
+            }
+            if (vizLieutenantDivisionContainer) {
+                vizLieutenantDivisionContainer.style.display = 'none';
+            }
         }
-        
     }
 
     rankSelect.addEventListener('change', updatePreview);
@@ -181,10 +219,25 @@ document.addEventListener('DOMContentLoaded', function () {
     clanNameSelect.addEventListener('change', updatePreview);
     generationInput.addEventListener('input', updatePreview);
     kenpachiCheckbox.addEventListener('change', updatePreview);
-    vizCaptainCheckbox.addEventListener('change', updatePreview);
-    vizLieutenantCheckbox.addEventListener('change', updatePreview);
+    vizCaptainCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            vizLieutenantCheckbox.checked = false;
+        }
+        updateVizardDivisionSelectors();
+        updatePreview();
+    });
+    vizLieutenantCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            vizCaptainCheckbox.checked = false;
+        }
+        updateVizardDivisionSelectors();
+        updatePreview();
+    });
     // royalFamilyCaptainCheckbox.addEventListener('change', updatePreview);
     nameInput.addEventListener('input', updatePreview);
+    document.getElementById('vizCaptainDivisionSelect').addEventListener('change', updatePreview);
+    document.getElementById('vizLieutenantDivisionSelect').addEventListener('change', updatePreview);
 
+    updateVizardDivisionSelectors();
     updatePreview();
 });

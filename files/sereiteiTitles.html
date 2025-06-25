@@ -63,7 +63,7 @@
             </div>
 
             <div id="divisionContainer" style="display: none;">
-                <h1>Select Division:</h1>
+                <label id="divisionLabel" for="divisionSelect"><h1>Select Division:</h1></label>
                 <select id="divisionSelect">
                     <option value="1st">1st</option>
                     <option value="2nd">2nd</option>
@@ -99,18 +99,60 @@
             </div>
 
             <div id="kenpachiContainer" style="display: none;">
-                <input type="checkbox" id="kenpachi" name="kenpachi">
-                <label for="kenpachi"><h1>Kenpachi</h1></label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="kenpachi" />
+                    <h1>Kenpachi</h1>
+                </label>
             </div>
 
             <div id="vizCaptainContainer" style="display: none;">
-                <input type="checkbox" id="vizCaptain" name="vizCaptain">
-                <label for="vizCaptain"><h1>Captain</h1></label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="vizCaptain" name="vizCaptain">
+                    <h1>Captain</h1>
+                </label>
+                <div id="vizCaptainDivisionContainer" style="display: none;">
+                    <h1>Select Division:</h1>
+                    <select id="vizCaptainDivisionSelect">
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                        <option value="5th">5th</option>
+                        <option value="6th">6th</option>
+                        <option value="7th">7th</option>
+                        <option value="8th">8th</option>
+                        <option value="9th">9th</option>
+                        <option value="10th">10th</option>
+                        <option value="11th">11th</option>
+                        <option value="12th">12th</option>
+                        <option value="13th">13th</option>
+                    </select>
+                </div>
             </div>
 
             <div id="vizLieutenantContainer" style="display: none;">
-                <input type="checkbox" id="vizLieutenant">
-                <label for="vizLieutenant"><h1>Lieutenant</h1></label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="vizLieutenant">
+                    <h1>Lieutenant</h1>
+                </label>
+                <div id="vizLieutenantDivisionContainer" style="display: none;">
+                    <h1>Select Division:</h1>
+                    <select id="vizLieutenantDivisionSelect">
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                        <option value="5th">5th</option>
+                        <option value="6th">6th</option>
+                        <option value="7th">7th</option>
+                        <option value="8th">8th</option>
+                        <option value="9th">9th</option>
+                        <option value="10th">10th</option>
+                        <option value="11th">11th</option>
+                        <option value="12th">12th</option>
+                        <option value="13th">13th</option>
+                    </select>
+                </div>
             </div>            
 
         </form>
@@ -119,9 +161,19 @@
         
         <div id="htmlCodeContainer" style="margin-top: 20px;">
             <h1>HTML Code:</h1>
-            <h2><pre id="htmlCode"></pre></h2>
+            <pre id="htmlCode"></pre>
+            <button class="copy-btn" type="button" onclick="copyHtmlCode()">Copy</button>
         </div>
-        
+        <script>
+        function copyHtmlCode() {
+            const code = document.getElementById('htmlCode').textContent;
+            navigator.clipboard.writeText(code).then(function() {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 1200);
+            });
+        }
+        </script>
 
     </div>
 
