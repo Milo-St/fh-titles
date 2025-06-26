@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         jackie: "#292727",
         riruka: "#3c2374",
         yukio: "#30ff9b",
+        orihime: "#ffa557",
     };
 
     function updatePreview() {
@@ -119,6 +120,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 previewText = `${selectedManifestation}`;
             } else if (selectedManifestation === "<br/>005 | Yukio Hans Vorarlberna") {
                 textColor = rankColors.yukio;
+                previewText = `${selectedManifestation}`;
+            } else if (selectedManifestation === "<br/>008 | Orihime Inoue") {
+                textColor = rankColors.orihime;
                 previewText = `${selectedManifestation}`;
             }
         } 
