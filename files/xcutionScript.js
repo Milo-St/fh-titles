@@ -145,6 +145,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             else if (selectedDominus === "Dominus Cineris") {
                 previewText = `[ 灰の主 ] ${userName} | ${selectedDominus}`;
+            } else if (selectedDominus === "Gladius Domini") {
+                previewText = `[ 主の剣 ] ] ${userName} | ${selectedDominus}`;
             }
         }
         
