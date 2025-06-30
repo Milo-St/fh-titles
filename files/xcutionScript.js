@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         riruka: "#3c2374",
         yukio: "#30ff9b",
         orihime: "#ffa557",
+        moe: "#f3e33d",
     };
 
     function updatePreview() {
@@ -102,33 +103,36 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (selectedRank === "manifestation") {
             if (selectedManifestation === "<br/>001 | Kūgo Ginjō") {
                 textColor = rankColors.ginjo;
-                previewText = `${selectedManifestation}`;
+                previewText = ` The Riftbearer<br/>001 | Kūgo Ginjō`;
             } else if (selectedManifestation === "<br/>002 | Tsukishima Shūkurō") {
                 textColor = rankColors.tsukishima;
-                previewText = `${selectedManifestation}`;
-            } else if (selectedManifestation === "<br/>004 | Giriko Kutsuzawa") {
+                previewText = ` The Mind-Scribe<br/>002 | Tsukishima Shūkurō`;
+            } else if (selectedManifestation === "<br/>003 | Giriko Kutsuzawa") {
                 textColor = rankColors.giriko;
-                previewText = `${selectedManifestation}`;
-            } else if (selectedManifestation === '<br/>007 | Yasutora "Chad" Sado') {
-                textColor = rankColors.chad;
-                previewText = `${selectedManifestation}`;
-            } else if (selectedManifestation === "<br/>006 | Jackie Tristan") {
+                previewText = ` The Chrono-Judge<br/>003 | Giriko Kutsuzawa`;
+            } else if (selectedManifestation === "<br/>004 | Jackie Tristan") {
                 textColor = rankColors.jackie;
-                previewText = `${selectedManifestation}`;
-            } else if (selectedManifestation === "<br/>003 | Riruka Dokugamine") {
-                textColor = rankColors.riruka;
-                previewText = `${selectedManifestation}`;
-            } else if (selectedManifestation === "<br/>005 | Yukio Hans Vorarlberna") {
-                textColor = rankColors.yukio;
-                previewText = `${selectedManifestation}`;
-            } else if (selectedManifestation === "<br/>008 | Orihime Inoue") {
+                previewText = ` The Gritbound Striker<br/>004 | Jackie Tristan`;
+            } else if (selectedManifestation === "<br/>005 | Orihime Inoue") {
                 textColor = rankColors.orihime;
-                previewText = `${selectedManifestation}`;
+                previewText = ` The Reversal Bloom<br/>005 | Orihime Inoue`;
+            } else if (selectedManifestation === "<br/>006 | Yukio Hans Vorarlberna") {
+                textColor = rankColors.yukio;
+                previewText = ` The Digital Warden<br/>006 | Yukio Hans Vorarlberna`;
+            } else if (selectedManifestation === "<br/>007 | Riruka Dokugamine") {
+                textColor = rankColors.riruka;
+                previewText = ` The Selective Heart<br/>007 | Riruka Dokugamine`;
+            } else if (selectedManifestation === "<br/>008 | Moe Shishigawara") {
+                textColor = rankColors.moe; // Use ginjo color for Moe, or add a new color if needed
+                previewText = ` The Luck-Forged Blade<br/>008 | Moe Shishigawara`;
+            } else if (selectedManifestation === '<br/>009 | Yasutora "Chad" Sado') {
+                textColor = rankColors.chad;
+                previewText = ` The Brazen Pillar<br/>009 | Yasutora "Chad" Sado`;
             }
         } 
     
         if (userName && selectedRank === "manifestation") {
-            previewText = `${userName} ${previewText}`;
+            previewText = `${userName}, ${previewText}`;
         }
         else if (userName && selectedRank === "dominus") {
             if (selectedDominus === "Dominus Terrae") {
