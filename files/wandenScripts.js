@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const rankColors = {
         sternritter: "#8d01f6",
-        wachritter: "#3c5dd9",
+        vassal: "#3c5dd9",
         schutzstaffel: "#f5fc68",
         apexKom: "#ca0003",
         kommandant: "#077028",
@@ -92,9 +92,9 @@ document.addEventListener('DOMContentLoaded', function () {
             textColor = rankColors.jagdarmee;
             previewText = `${selectedJag}`;
         }
-        else if (selectedRank === "wachritter") {
-            textColor = rankColors.wachritter;
-            previewText = `Wachritter - ${selectedWach}`;
+        else if (selectedRank === "vassal") {
+            textColor = rankColors.vassal;
+            previewText = `Vassal - ${selectedWach}`;
         }
     
         if (userName) {
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         schutzContainer.style.display = selectedRank === "schutzstaffel" ? "block" : "none";
         komContainer.style.display = selectedRank === "kommandant" ? "block" : "none";
         jagContainer.style.display = selectedRank === "jagdarmee" ? "block" : "none";
-        wachContainer.style.display = selectedRank === "wachritter" ? "block" : "none";
+        wachContainer.style.display = selectedRank === "vassal" ? "block" : "none";
     }
     
     rankSelect.addEventListener("change", updatePreview);
