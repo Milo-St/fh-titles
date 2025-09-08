@@ -75,23 +75,38 @@ document.addEventListener('DOMContentLoaded', function () {
         let htmlCodeText = "";
     
         if (selectedRank === "dominus") {
-            if (selectedDominus === "[主の剣] Gladius Domini") {
-                textColor = rankColors.gladius;
-                previewText = `${selectedDominus}`
+            textColor = rankColors.dominus;
+            if (userName) {
+                previewText = `${userName}<br/>${selectedDominus}`;
             } else {
-                textColor = rankColors.dominus;
-                previewText = `${selectedDominus}`;
+                previewText = selectedDominus;
             }
         } 
 
         else if (selectedRank === "custodes") {
-
-            if (selectedCustodesRank === "[主の剣] Gladius Domini") {
-                textColor = rankColors.gladius;
-                previewText = `${selectedCustodesRank}`
+            textColor = rankColors.custodes;
+            let title = "";
+            if (selectedCustodesRank === "shadow") {
+                title = `[ 影 ] Shadow Ranger — “Whisper of the Forgotten Path”`;
+            } else if (selectedCustodesRank === "wind") {
+                title = `[ 空 ] Wind Ranger — “Tempest Born, Blade Unbound”`;
+            } else if (selectedCustodesRank === "water") {
+                title = `[ 水 ] Water Ranger — “Flowing Silence of the Deep”`;
+            } else if (selectedCustodesRank === "cinder") {
+                title = `[ 火 ] Cinder Ranger — “Ashen Wrath of the Flame”`;
+            } else if (selectedCustodesRank === "earth") {
+                title = `[ 土 ] Earth Ranger — “Pillar of the Sleeping Realm”`;
+            } else if (selectedCustodesRank === "solar") {
+                title = `[ 金 ] Solar Ranger — “Light Unyielding, Flame of Judgment”`;
+            } else if (selectedCustodesRank === "blossom") {
+                title = `[ 桜 ] Blossom Ranger — “Petal Dance of the Crimson Bloom”`;
+            } else if (selectedCustodesRank === "radiant") {
+                title = `[ 光 ] Radiant Ranger — “Beacon of Dawn, Voice of Glory”`;
+            }
+            if (userName && title) {
+                previewText = `${userName}<br>${title}`;
             } else {
-                textColor = rankColors.custodes;
-                previewText = `${selectedCustodesRank}`;
+                previewText = title;
             }
         }
 
