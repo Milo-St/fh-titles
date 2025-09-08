@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 textColor = rankColors.riruka;
                 previewText = ` The Selective Heart<br/>007 | Riruka Dokugamine`;
             } else if (selectedManifestation === "<br/>008 | Moe Shishigawara") {
-                textColor = rankColors.moe; // Use ginjo color for Moe, or add a new color if needed
+                textColor = rankColors.moe;
                 previewText = ` The Luck-Forged Blade<br/>008 | Moe Shishigawara`;
             } else if (selectedManifestation === '<br/>009 | Yasutora "Chad" Sado') {
                 textColor = rankColors.chad;
