@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const espadaContainer = document.getElementById('espadaContainer');
     const fantasiaContainer = document.getElementById('fantasiaContainer');
     const primordialesContainer = document.getElementById('primordialesContainer');
+    const fraccionContainer = document.getElementById('fraccionContainer');
     const nameInput = document.getElementById('nameInput');
     const htmlCodeContainer = document.getElementById('htmlCode');
+    const fraccionSelect = document.getElementById('fraccionSelect');
 
     const fontMap = {
         "Roboto": "Roboto",
@@ -47,8 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
         blade: "#E91E63",
         ceroEspada: "#3554ff",
         espada: "#a70000",
-        fantasia: "#b8a2f0",
-        primordiales: "#606f97",
+        originales: "#c3e8b1",
+        horsemen: "#561958",
+        fraccion: "#1f8b4c",
     };
 
     function updatePreview() {
@@ -58,21 +61,17 @@ document.addEventListener('DOMContentLoaded', function () {
         let selectedEspadaRank = espadaRankSelect.value;
         let selectedFantasia = fantasiaSelect.value;
         let selectedPrimordiales = primordialesSelect.value;
+        let selectedFraccion = fraccionSelect ? fraccionSelect.value : "";
         let userName = nameInput.value.trim();
     
         let previewText = "";
         let htmlCodeText = "";
         let textColor = "";
     
-if (selectedRank === "fantasia") {
-    if (selectedFantasia === "Blade") {
-        textColor = rankColors.blade; // <-- fix: lowercase t
-        previewText = "The Hollow King's Blade";
-    } else {
-        textColor = rankColors.fantasia;
-        previewText = `Espada De Fantasia ${selectedFantasia}`;
-    }
-}
+        if (selectedRank === "originales") {
+            textColor = rankColors.originales;
+            previewText = `Los Originales - ${selectedFantasia}`;
+        }
         else if (selectedRank === "espada") {
             if (selectedEspadaRank === "Cero") {
                 textColor = rankColors.ceroEspada;
@@ -82,9 +81,17 @@ if (selectedRank === "fantasia") {
                 previewText = `${selectedEspadaRank} Espada`;
             }
         } 
-        else if (selectedRank === "primordiales") {
-            textColor = rankColors.primordiales;
-            previewText = `The ${selectedPrimordiales}`;
+        else if (selectedRank === "horsemen") {
+            textColor = rankColors.horsemen;
+            previewText = `Horseman of ${selectedPrimordiales}`;
+        }
+        else if (selectedRank === "fraccion") {
+            textColor = rankColors.fraccion;
+            previewText = `${selectedFraccion} Principal Fraccion`;
+        }
+        else if (selectedRank === "blade") {
+            textColor = rankColors.blade;
+            previewText = "The Hollow King's Blade";
         }
     
         if (userName) {
@@ -99,8 +106,9 @@ if (selectedRank === "fantasia") {
         htmlCodeContainer.textContent = htmlCodeText;
     
         espadaContainer.style.display = selectedRank === "espada" ? "block" : "none";
-        fantasiaContainer.style.display = selectedRank === "fantasia" ? "block" : "none";
-        primordialesContainer.style.display = selectedRank === "primordiales" ? "block" : "none";
+        fantasiaContainer.style.display = selectedRank === "originales" ? "block" : "none";
+        primordialesContainer.style.display = selectedRank === "horsemen" ? "block" : "none";
+        fraccionContainer.style.display = selectedRank === "fraccion" ? "block" : "none";
     }
     
     rankSelect.addEventListener("change", updatePreview);
@@ -109,6 +117,7 @@ if (selectedRank === "fantasia") {
     fantasiaSelect.addEventListener("change", updatePreview);
     primordialesSelect.addEventListener("change", updatePreview);
     nameInput.addEventListener("input", updatePreview);
+    fraccionSelect && fraccionSelect.addEventListener("change", updatePreview);
 
     updatePreview();
 });

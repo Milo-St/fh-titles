@@ -24,28 +24,21 @@
 
             <h1>Select Rank:</h1>
             <select id="rankSelect">
-                <option value="royalFamily">Royal Family Leader</option>
                 <option value="royalGuard">Royal Guard</option>
                 <option value="captain">Captain</option>
                 <option value="vizard">Vizard</option>
                 <option value="lieutenant">Lieutenant</option>
+                <option value="warpowers">Warpowers</option>
             </select>
 
-            <div id="royalFamilyContainer" style="display: none;">
-                <label for="generationInput"><h1>Generation:</h1></label>
-                <input type="number" id="generationInput" min="1" placeholder="Enter Generation">
-                
-                <label for="clanNameSelect"><h1>Clan Name:</h1></label>
-                <select id="clanNameSelect">
-                    <option value="Kuchiki">Kuchiki</option>
-                    <option value="Shihōin">Shihōin</option>
-                    <option value="Kyōraku">Kyōraku</option>
-                    <option value="Tsunayashiro">Tsunayashiro</option>
-                    <option value="Shiba">Shiba</option>
+            <div id="warpowersContainer" style="display: none;">
+                <h1>Select Warpower:</h1>
+                <select id="warpowersSelect">
+                    <option value="Aizen">Aizen</option>
+                    <option value="Ichigo">Ichigo</option>
+                    <option value="Kisuke">Kisuke</option>
+                    <option value="Kenpachi">Kenpachi</option>
                 </select>
-            
-                <!-- <label for="royalFamilyCaptain"><h1>Captain</h1></label> -->
-                <!-- <input type="checkbox" id="royalFamilyCaptain"> -->
             </div>
 
             <div id="vizardRankContainer" style="display: none;">
@@ -88,13 +81,6 @@
                     <option value="Ruler of Grain | Divine General of The South">Ruler of Grain | Divine General of The South</option>
                     <option value="God of the Sword | Divine General of The West">God of the Sword | Divine General of The West</option>
                     <option value="Great Weave Guard | Divine General of The North">Great Weave Guard | Divine General of The North</option>
-                </select>
-            </div>
-
-            <div id="royalFamilyContainer" style="display: none;">
-                <h1>Choose your royal family</h1>
-                <select id="royalFamilySelect">
-                    <option value=""></option>
                 </select>
             </div>
 

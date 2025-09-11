@@ -4,22 +4,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const divisionSelect = document.getElementById('divisionSelect');
     const royalGuardSelect = document.getElementById('royalGuardSelect');
     const vizardRankSelect = document.getElementById('vizardRankSelect');
-    const clanNameSelect = document.getElementById('clanNameSelect');
-    const generationInput = document.getElementById('generationInput');
     const kenpachiCheckbox = document.getElementById('kenpachi');
     const vizCaptainCheckbox = document.getElementById('vizCaptain');
     const vizLieutenantCheckbox = document.getElementById('vizLieutenant');
-    // const royalFamilyCaptainCheckbox = document.getElementById('royalFamilyCaptain');
     const preview = document.getElementById('preview');
     const divisionContainer = document.getElementById('divisionContainer');
     const royalGuardContainer = document.getElementById('royalGuardContainer');
     const vizardRankContainer = document.getElementById('vizardRankContainer');
-    const royalFamilyContainer = document.getElementById('royalFamilyContainer');
     const kenpachiContainer = document.getElementById('kenpachiContainer');
     const vizCaptainContainer = document.getElementById('vizCaptainContainer');
     const vizLieutenantContainer = document.getElementById('vizLieutenantContainer');
     const nameInput = document.getElementById('nameInput');
     const htmlCodeContainer = document.getElementById('htmlCode');
+    const warpowersSelect = document.getElementById('warpowersSelect');
+    const warpowersContainer = document.getElementById('warpowersContainer');
 
     const fontMap = {
         "Roboto": "Roboto",
@@ -54,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const rankColors = {
-        royalFamily: "#a9fefe",
         royalGuard: "#640000",
         captainKenpachi: "#ff6a13",
         captain: "#62bdfe",
@@ -67,15 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
         let selectedFont = fontSelect.value;
         let googleFont = fontMap[selectedFont] || selectedFont;
         let selectedRank = rankSelect.value;
-        let selectedDivision = divisionSelect.value;
-        let selectedRoyalGuard = royalGuardSelect.options[royalGuardSelect.selectedIndex].text;
-        let selectedVizardRank = vizardRankSelect.options[vizardRankSelect.selectedIndex].text;
-        let selectedClan = clanNameSelect.options[clanNameSelect.selectedIndex].text;
-        let generation = generationInput.value;
+        let selectedWarpower = warpowersSelect ? warpowersSelect.value : "";
         let kenpachiStatus = kenpachiCheckbox.checked;
         let vizCaptainStatus = vizCaptainCheckbox.checked;
         let vizLieutenantStatus = vizLieutenantCheckbox.checked;
-        // let royalFamilyCaptainStatus = royalFamilyCaptainCheckbox.checked;
         let userName = nameInput.value.trim();
         let selectedVizCaptainDivision = '';
         let selectedVizLieutenantDivision = '';
@@ -98,17 +90,11 @@ document.addEventListener('DOMContentLoaded', function () {
             previewText += `${userName} | `;
         }
 
-        if (generation > 99) {
-            generationInput.value = 99;
-            generation = 99;
-            updatePreview();
-        }
+        let selectedRoyalGuard = royalGuardSelect ? royalGuardSelect.value : "";
+        let selectedVizardRank = vizardRankSelect ? vizardRankSelect.value : "";
+        let selectedDivision = divisionSelect ? divisionSelect.value : "";
 
-        if (selectedRank === 'royalFamily') {
-            textColor = rankColors.royalFamily;
-            previewText += `Gen ${generation}<br/> Head of The ${selectedClan} clan`;
-        }
-        else if (selectedRank === 'royalGuard') {
+        if (selectedRank === 'royalGuard') {
             textColor = rankColors.royalGuard;
             previewText += selectedRoyalGuard;
         } 
@@ -134,6 +120,48 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (selectedRank === 'lieutenant') {
             textColor = rankColors.lieutenant;
             previewText += `Lieutenant of The ${selectedDivision} Division`;
+        } else if (selectedRank === "warpowers") {
+            let htmlCodeText = "";
+            switch (selectedWarpower) {
+                case "Aizen":
+                    previewText = "Sōsuke Aizen | Architect of Tranquil";
+                    textColor = "#3d2096";
+                    htmlCodeText = '<font color="#3d2096" face="RobotoCondensed">Sōsuke Aizen<br/>Architect of Trainquil</font>';
+                    break;
+                case "Ichigo":
+                    previewText = "Ichigo Kurosaki | Savior of the Soul Society";
+                    textColor = "#FF6600";
+                    htmlCodeText = '<font face="RobotoCondensed"><font color="#000000">Ichigo</font> <font color="#FFFFFF">Kurosaki</font></font><br/><font face="RobotoCondensed" color="#FF6600">Savior of the Soul Society</font>';
+                    break;
+                case "Kisuke":
+                    previewText = "Kisuke Urahara | The Ingenious of the Soul Society";
+                    textColor = "#6F8F7B";
+                    htmlCodeText = '<font face="RobotoCondensed"><font color="#FFFFFF">Kisuke Urahara</font></font><br/><font face="RobotoCondensed" color="#6F8F7B">The Ingenious of the Soul Society</font>';
+                    break;
+                case "Kenpachi":
+                    const kenpachiName = userName;
+                    previewText = `${kenpachiName} | Kenpachi Zaraki | The Apex Berserker of the 11th Division`;
+                    textColor = "#FF6600";
+                    htmlCodeText = `<font face=\"RobotoCondensed\"><font color=\"#FFFFFF\">${kenpachiName} | Kenpachi Zaraki</font></font><br/><font face=\"RobotoCondensed\" color=\"#FF6600\">The Apex Berserker of the 11th Division</font>`;
+                    break;
+                default:
+                    previewText = "Warpower";
+                    textColor = "#000";
+                    htmlCodeText = previewText;
+            }
+            preview.innerHTML = previewText;
+            preview.style.color = textColor;
+            preview.style.fontFamily = "'Roboto Condensed', sans-serif";
+            htmlCodeContainer.textContent = htmlCodeText;
+            // Show/hide containers
+            warpowersContainer.style.display = 'block';
+            royalGuardContainer.style.display = 'none';
+            vizardRankContainer.style.display = 'none';
+            kenpachiContainer.style.display = 'none';
+            vizCaptainContainer.style.display = 'none';
+            vizLieutenantContainer.style.display = 'none';
+            divisionContainer.style.display = 'none';
+            return;
         }
 
         preview.style.fontFamily = `'${googleFont}', sans-serif`;
@@ -146,7 +174,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Show/hide containers
         royalGuardContainer.style.display = selectedRank === 'royalGuard' ? 'block' : 'none';
         vizardRankContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
-        royalFamilyContainer.style.display = selectedRank === 'royalFamily' ? 'block' : 'none';
         kenpachiContainer.style.display = selectedRank === 'captain' ? 'block' : 'none';
         vizCaptainContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
         vizLieutenantContainer.style.display = selectedRank === 'vizard' ? 'block' : 'none';
@@ -162,12 +189,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             kenpachiCheckbox.checked = false; 
             kenpachiCheckbox.disabled = true;
-        }
-        if (selectedRank === 'royalFamily') {
-            royalFamilyCaptainCheckbox.disabled = false;
-        } else {
-            royalFamilyCaptainCheckbox.checked = false;
-            royalFamilyCaptainCheckbox.disabled = true;
         }
         if (selectedRank === 'vizard') {
             vizCaptainCheckbox.disabled = false;
@@ -216,8 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
     divisionSelect.addEventListener('change', updatePreview);
     royalGuardSelect.addEventListener('change', updatePreview);
     vizardRankSelect.addEventListener('change', updatePreview);
-    clanNameSelect.addEventListener('change', updatePreview);
-    generationInput.addEventListener('input', updatePreview);
     kenpachiCheckbox.addEventListener('change', updatePreview);
     vizCaptainCheckbox.addEventListener('change', function() {
         if (this.checked) {
@@ -233,10 +252,10 @@ document.addEventListener('DOMContentLoaded', function () {
         updateVizardDivisionSelectors();
         updatePreview();
     });
-    // royalFamilyCaptainCheckbox.addEventListener('change', updatePreview);
     nameInput.addEventListener('input', updatePreview);
     document.getElementById('vizCaptainDivisionSelect').addEventListener('change', updatePreview);
     document.getElementById('vizLieutenantDivisionSelect').addEventListener('change', updatePreview);
+    warpowersSelect && warpowersSelect.addEventListener("change", updatePreview);
 
     updateVizardDivisionSelectors();
     updatePreview();
